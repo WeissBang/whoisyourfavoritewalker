@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light nav-bg">
   <img src="images/zombie.png" alt="zombieLogo" class="img-fluid mb-3" style="max-width: 50px;">
-  <h3 class="navbar-brand nav-text">Who Is Your Favorite Zombie?</h3>
+  <h3 class="navbar-brand nav-text">Who Is Your Favorite Walker?</h3>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -16,7 +16,7 @@
         <a class="nav-link {{ app.request.get('_route') == 'zlistpage' ? 'active' : '' }}" href="{{ path('zlistpage') }}">Wall of the Dead</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ app.request.get('_route') == 'zformpage' ? 'active' : '' }}" href="{{ path('zformpage') }}">Add your Z</a>
+        <a class="nav-link {{ app.request.get('_route') == 'zformpage' ? 'active' : '' }}" href="{{ path('zformpage') }}">Add your Walker</a>
       </li>
       <li class="nav-item">
         <a class="nav-link {{ app.request.get('_route') == 'admin_panel' ? 'active' : '' }}" href="{{ path('admin_panel') }}">Admin</a>

@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="container mt-5">
-        <h1 class="text-center mb-4" style="color: #FF4500;">Add a New Zombie</h1>
+        <h1 class="text-center mb-4" style="color: #FF4500;">Add a New Walker</h1>
 
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -10,18 +10,21 @@
                     <div class="card-body">
                         {{ form_start(form) }}
 
+                        <!-- Name Field -->
                         <div class="form-group mb-3">
                             {{ form_label(form.name, null, {'label_attr': {'style': 'color: #A9A9A9;'}}) }}
                             {{ form_widget(form.name, {'attr': {'class': 'form-control', 'style': 'background-color: #1E1E1E; color: #FFFFFF; border: 1px solid #555;'}}) }}
                             {{ form_errors(form.name) }}
                         </div>
 
+                        <!-- Description Field -->
                         <div class="form-group mb-3">
                             {{ form_label(form.description, null, {'label_attr': {'style': 'color: #A9A9A9;'}}) }}
                             {{ form_widget(form.description, {'attr': {'class': 'form-control', 'style': 'background-color: #1E1E1E; color: #FFFFFF; border: 1px solid #555; resize: none; height: 100px;'}}) }}
                             {{ form_errors(form.description) }}
                         </div>
 
+                        <!-- Image Upload Section -->
                         <div class="form-group mb-3">
                             {{ form_label(form.image, null, {'label_attr': {'style': 'color: #A9A9A9; display: block;'}}) }}
 
@@ -37,12 +40,14 @@
                             </div>
                         </div>
 
+                        <!-- Status Field -->
                         <div class="form-group mb-3">
                             {{ form_label(form.status, null, {'label_attr': {'style': 'color: #A9A9A9;'}}) }}
-                            {{ form_widget(form.status, {'attr': {'class': 'form-control', 'style': 'background-color: #1E1E1E; color: #FFFFFF; border: 1px solid #555; resize: none;'}}) }}
+                            {{ form_widget(form.status, {'attr': {'class': 'form-control', 'style': 'background-color: #1E1E1E; color: #FFFFFF; border: 1px solid #555;'}}) }}
                             {{ form_errors(form.status) }}
                         </div>
 
+                        <!-- Season and Episode Fields -->
                         <div class="form-row mb-3">
                             <div class="col">
                                 {{ form_label(form.season, null, {'label_attr': {'style': 'color: #A9A9A9;'}}) }}
@@ -56,6 +61,14 @@
                             </div>
                         </div>
 
+                        <!-- Location Field -->
+                        <div class="form-group mb-3">
+                            {{ form_label(form.location, null, {'label_attr': {'style': 'color: #A9A9A9;'}}) }}
+                            {{ form_widget(form.location, {'attr': {'class': 'form-control', 'style': 'background-color: #1E1E1E; color: #FFFFFF; border: 1px solid #555; border-radius: 5px;'}}) }}
+                            {{ form_errors(form.location) }}
+                        </div>
+
+                        <!-- Submit Button -->
                         <div class="form-group text-center">
                             {{ form_widget(form.save, {'attr': {'class': 'btn btn-lg mt-3', 'style': 'background-color: #FF4500; color: #FFFFFF; border: none;'}}) }}
                         </div>

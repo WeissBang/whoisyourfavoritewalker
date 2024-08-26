@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Validator\Constraints\File;
 
 class ZombieType extends AbstractType
 {
@@ -27,14 +28,22 @@ class ZombieType extends AbstractType
             ])
             ->add('image', FileType::class, [
                 'required' => false,
+                'mapped' => false, // This field is not directly mapped to the entity
+                'constraints' => [
+                    new File([
+                        'maxSize' => '2M',
+                        'mimeTypes' => [
+                            'image/png',
+                            'image/jpeg',
+                        ],
+                        'mimeTypesMessage' => 'Please upload a valid image (PNG or JPEG)',
+                    ])
+                ],
                 'attr' => ['class' => 'form-control-file'],
             ])
             ->add('status', TextareaType::class, [
                 'required' => false,
                 'attr' => ['class' => 'form-control', 'rows' => 3],
-            ])
-            ->add('save', SubmitType::class, [
-                'attr' => ['class' => 'btn btn-lg mt-3', 'style' => 'background-color: #FF4500; color: #FFFFFF; border: none;'],
             ])
             ->add('season', IntegerType::class, [
                 'required' => false,
@@ -43,6 +52,13 @@ class ZombieType extends AbstractType
             ->add('episode', IntegerType::class, [
                 'required' => false,
                 'attr' => ['min' => 1],
+            ])
+            ->add('location', TextType::class, [
+                'required' => false,
+                'attr' => ['class' => 'form-control'],
+            ])
+            ->add('save', SubmitType::class, [
+                'attr' => ['class' => 'btn btn-lg mt-3', 'style' => 'background-color: #FF4500; color: #FFFFFF; border: none;'],
             ]);
     }
 

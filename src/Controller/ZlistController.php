@@ -56,11 +56,11 @@ class ZlistController extends AbstractController
             }
 
             if (empty($zombie->getSeason())) {
-                $zombie->setSeason('Unknown season');
+                $zombie->setSeason(0);
             }
 
             if (empty($zombie->getEpisode())) {
-                $zombie->setEpisode('Unknown episode');
+                $zombie->setEpisode(0);
             }
 
             if (empty($zombie->getLocation())) {

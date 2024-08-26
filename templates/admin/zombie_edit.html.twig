@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="container mt-5">
-        <h1 class="text-center mb-4" style="color: #FF4500;">Edit Zombie</h1>
+        <h1 class="text-center mb-4" style="color: #FF4500;">Edit This Walker</h1>
 
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -31,6 +31,27 @@
                             {{ form_errors(form.status) }}
                         </div>
 
+                        <!-- Location Field -->
+                        <div class="form-group mb-3">
+                            {{ form_label(form.location, null, {'label_attr': {'style': 'color: #A9A9A9;'}}) }}
+                            {{ form_widget(form.location, {'attr': {'class': 'form-control', 'style': 'background-color: #1E1E1E; color: #FFFFFF; border: 1px solid #555;'}}) }}
+                            {{ form_errors(form.location) }}
+                        </div>
+
+                        <!-- Season and Episode Fields -->
+                        <div class="form-row mb-3">
+                            <div class="col">
+                                {{ form_label(form.season, null, {'label_attr': {'style': 'color: #A9A9A9;'}}) }}
+                                {{ form_widget(form.season, {'attr': {'class': 'form-control', 'style': 'background-color: #1E1E1E; color: #FFFFFF; border: 1px solid #555; border-radius: 5px;'}}) }}
+                                {{ form_errors(form.season) }}
+                            </div>
+                            <div class="col">
+                                {{ form_label(form.episode, null, {'label_attr': {'style': 'color: #A9A9A9;'}}) }}
+                                {{ form_widget(form.episode, {'attr': {'class': 'form-control', 'style': 'background-color: #1E1E1E; color: #FFFFFF; border: 1px solid #555; border-radius: 5px;'}}) }}
+                                {{ form_errors(form.episode) }}
+                            </div>
+                        </div>
+
                         <!-- Image Upload Section -->
                         <div class="form-group mb-3 text-center">
                             <h4 style="color: #A9A9A9;">Current Image:</h4>
@@ -43,13 +64,6 @@
                                 <p style="color: #FF4500;">No image available</p>
                             {% endif %}
                         </div>
-
-                        {# <!-- File upload for new image --> NOT WORKING RIGHT NOW #}
-                        {# <div class="form-group mb-3">
-                            <label for="image-upload" style="color: #A9A9A9;">Upload New Image</label>
-                            <input type="file" id="image-upload" name="imageFile" class="form-control" style="background-color: #1E1E1E; color: #FFFFFF; border: 1px solid #555;">
-                            {{ form_errors(form.imageFile) }}
-                        </div> #}
 
                         <!-- Submit Button -->
                         <div class="form-group text-center">
