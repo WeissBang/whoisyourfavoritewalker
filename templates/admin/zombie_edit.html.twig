@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4" style="color: #FF4500;">Edit Zombie</h1>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm" style="background-color: #2B2B2B; border-radius: 10px; border: 1px solid #FF4500;">
+                    <div class="card-body">
+                        {{ form_start(form) }}
+
+                        <!-- Name Field -->
+                        <div class="form-group mb-3">
+                            {{ form_label(form.name, null, {'label_attr': {'style': 'color: #A9A9A9;'}}) }}
+                            {{ form_widget(form.name, {'attr': {'class': 'form-control', 'style': 'background-color: #1E1E1E; color: #FFFFFF; border: 1px solid #555;'}}) }}
+                            {{ form_errors(form.name) }}
+                        </div>
+
+                        <!-- Description Field -->
+                        <div class="form-group mb-3">
+                            {{ form_label(form.description, null, {'label_attr': {'style': 'color: #A9A9A9;'}}) }}
+                            {{ form_widget(form.description, {'attr': {'class': 'form-control', 'style': 'background-color: #1E1E1E; color: #FFFFFF; border: 1px solid #555; resize: none; height: 100px;'}}) }}
+                            {{ form_errors(form.description) }}
+                        </div>
+
+                        <!-- Status Field -->
+                        <div class="form-group mb-3">
+                            {{ form_label(form.status, null, {'label_attr': {'style': 'color: #A9A9A9;'}}) }}
+                            {{ form_widget(form.status, {'attr': {'class': 'form-control', 'style': 'background-color: #1E1E1E; color: #FFFFFF; border: 1px solid #555;'}}) }}
+                            {{ form_errors(form.status) }}
+                        </div>
+
+                        <!-- Image Upload Section -->
+                        <div class="form-group mb-3 text-center">
+                            <h4 style="color: #A9A9A9;">Current Image:</h4>
+                            {% if zombie.image %}
+                                <div>
+                                    <!-- Adjust the path to correctly point to the images folder -->
+                                    <img src="{{ asset('images/' ~ zombie.image) }}" alt="{{ zombie.name }}" class="img-thumbnail" style="max-width: 150px; border-radius: 5px; border: 2px solid #FF4500;">
+                                </div>
+                            {% else %}
+                                <p style="color: #FF4500;">No image available</p>
+                            {% endif %}
+                        </div>
+
+                        {# <!-- File upload for new image --> NOT WORKING RIGHT NOW #}
+                        {# <div class="form-group mb-3">
+                            <label for="image-upload" style="color: #A9A9A9;">Upload New Image</label>
+                            <input type="file" id="image-upload" name="imageFile" class="form-control" style="background-color: #1E1E1E; color: #FFFFFF; border: 1px solid #555;">
+                            {{ form_errors(form.imageFile) }}
+                        </div> #}
+
+                        <!-- Submit Button -->
+                        <div class="form-group text-center">
+                            {{ form_widget(form.save, {'attr': {'class': 'btn btn-lg mt-3', 'style': 'background-color: #FF4500; color: #FFFFFF; border: none;'}}) }}
+                        </div>
+
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Remove hover effect on cards */
+        .card:hover {
+            box-shadow: none;
+            transform: none;
+        }
+    </style>
+{% endblock %}

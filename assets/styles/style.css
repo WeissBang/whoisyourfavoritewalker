@@ -1,0 +1,85 @@
+/* General Body Styling */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-image: url('/images/background4.webp');
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-color: #2B2B2B;
+    color: #FFFFFF;
+}
+
+/* Navigation Styling */
+.navbar-nav .nav-item .nav-link.active {
+    color: #ffffff!important;
+}
+
+.nav-link {
+    color: black!important;
+}
+
+.nav-bg {
+    background-color: #505050;
+}
+
+/* Button Styling */
+.btn-darkdanger {
+    color: white;
+    background-color: rgb(86, 8, 8);
+}
+
+/* Custom File Upload Styling */
+.custom-file-upload {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #FF4500;
+    color: #FFFFFF;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.custom-file-upload:hover {
+    background-color: #E03E00;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* Footer Styling */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    color: #FFFFFF;
+}
+
+.footer .footer-text {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 0px;
+    padding: 20px;
+}
+
+/* Container Padding */
+.container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/* Utility Classes */
+.mt-4 {
+    margin-top: 1.5rem!important;
+}

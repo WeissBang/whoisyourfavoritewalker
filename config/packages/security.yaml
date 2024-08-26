@@ -1,0 +1,39 @@
+security:
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+
+    providers:
+        users_in_memory:
+            memory:
+                users:
+                    weiss:
+                        password: '$2y$13$L7cQfvk36Ayo9rBVrqo3OecdEwEV0Wj4bz1usmSfKRiJc5/GZygJC'
+                        roles: ['ROLE_ADMIN']
+
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: username
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            provider: users_in_memory
+            custom_authenticators:
+                - App\Security\AppCustomAuthenticator
+            lazy: true
+            form_login:
+                login_path: login     # Set your login route here
+                check_path: login      # Path Symfony checks for login submission
+            logout:
+                path: /logout
+                target: homepage
+
+    access_control:
+        - { path: ^/admin, roles: ROLE_ADMIN }
+
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER

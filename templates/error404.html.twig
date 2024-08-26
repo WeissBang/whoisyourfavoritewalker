@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-5 text-center">
+        <h1 class="display-1" style="color: #FF4500;">404</h1>
+        <h2 class="mb-4" style="color: #FFFFFF;">Page Not Found</h2>
+        <p class="lead" style="color: white;">Oops! The page you are looking for does not exist.</p>
+        <a href="{{ path('homepage') }}" class="btn btn-darkdanger mt-3">Return to Home</a>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.backgroundImage = "url('{{ asset('images/background4.webp') }}')";
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundRepeat = "no-repeat";
+            document.body.style.backgroundAttachment = "fixed";
+            document.body.style.backgroundPosition = "center center";
+            document.body.style.color = "white";
+        });
+    </script>
+{% endblock %}

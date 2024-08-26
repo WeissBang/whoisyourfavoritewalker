@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="text-center" style="color: #FF4500;">Admin Panel</h1>
+
+        <div class="row">
+            {% for zombie in zombies %}
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center shadow-sm" style="background-color: #2B2B2B; border-radius: 10px; border: 1px solid #FF4500; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div class="card-body" style="flex-grow: 1;">
+                            <!-- Zombie Image -->
+                            <img src="{{ asset('images/' ~ zombie.image) }}" alt="{{ zombie.name }}" class="img-fluid mb-3" style="max-width: 100%; border-radius: 5px; border: 1px solid #555;">
+
+                            <h5 class="card-title" style="color: #FFFFFF;">{{ zombie.name }}</h5>
+                            <p class="card-text" style="color: #A9A9A9;">{{ zombie.description }}</p>
+                            <p class="card-text" style="color: #A9A9A9;"><strong>Status:</strong> {{ zombie.status }}</p>
+                            <p class="card-text" style="color: #A9A9A9;"><strong>Season:</strong> {{ zombie.season }} | <strong>Episode:</strong> {{ zombie.episode }}</p>
+                            <p class="card-text" style="color: #A9A9A9;"><strong>Location:</strong> {{ zombie.location }}</p>
+                        </div>
+
+                        <div>
+                            <a href="{{ path('edit_zombie', {id: zombie.id}) }}" class="btn btn-warning mb-2">Edit</a>
+                            
+                            <form method="post" action="{{ path('delete_zombie', {id: zombie.id}) }}" style="display:inline;">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ zombie.id) }}">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-12">
+                    <p class="text-center" style="color: #A9A9A9;">No zombies found.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <style>
+        /* Remove hover effect on cards */
+        .card:hover {
+            box-shadow: none;
+            transform: none;
+        }
+    </style>
+{% endblock %}
