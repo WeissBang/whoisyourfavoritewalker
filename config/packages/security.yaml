@@ -7,7 +7,7 @@ security:
             memory:
                 users:
                     weiss:
-                        password: '$2y$13$L7cQfvk36Ayo9rBVrqo3OecdEwEV0Wj4bz1usmSfKRiJc5/GZygJC'
+                        password: '$2y$13$09E7z2ebuCMQb1BVUEHvfuRfRARtGt0MnlPrB.V.Uq75cDc5NJmEC'
                         roles: ['ROLE_ADMIN']
 
         app_user_provider:

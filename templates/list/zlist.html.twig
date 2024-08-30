@@ -5,6 +5,22 @@
         <h1 class="text-center text-uppercase" style="color: #B22222;">Walker List</h1>
         <p class="lead text-center" style="color: white;">Explore the Walkers from The Walking Dead, added by fans like you.</p>
 
+        <!-- Season Filter -->
+        <div class="row mb-4">
+            <div class="col-md-4 offset-md-4">
+                <form method="get" action="{{ path('zlistpage') }}">
+                    <div class="input-group">
+                        <select name="season" class="form-control" style="background-color: #1E1E1E; color: #FFFFFF; border: 1px solid #555;" onchange="this.form.submit()">
+                            <option value="" style="background-color: #1E1E1E; color: #A9A9A9;">All Seasons</option>
+                            {% for i in 1..11 %}
+                                <option value="{{ i }}" {% if i == selectedSeason %}selected{% endif %} style="background-color: #1E1E1E; color: #A9A9A9;">Season {{ i }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+
         <div class="row">
             {% for zombie in zombies %}
                 <div class="col-md-4 mb-4">
