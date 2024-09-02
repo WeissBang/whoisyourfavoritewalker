@@ -3,12 +3,10 @@ security:
         Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
 
     providers:
+
         users_in_memory:
             memory:
                 users:
-                    weiss:
-                        password: '$2y$13$09E7z2ebuCMQb1BVUEHvfuRfRARtGt0MnlPrB.V.Uq75cDc5NJmEC'
-                        roles: ['ROLE_ADMIN']
 
         app_user_provider:
             entity:
@@ -21,13 +19,13 @@ security:
             security: false
 
         main:
-            provider: users_in_memory
+            provider: app_user_provider
             custom_authenticators:
                 - App\Security\AppCustomAuthenticator
             lazy: true
             form_login:
-                login_path: login     # Set your login route here
-                check_path: login      # Path Symfony checks for login submission
+                login_path: login
+                check_path: login
             logout:
                 path: /logout
                 target: homepage

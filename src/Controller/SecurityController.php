@@ -31,9 +31,10 @@ class SecurityController extends AbstractController
         return $this->render('security/logout_confirm.html.twig');
     }
 
-    #[Route('/logout', name: 'logout', methods: ['POST'])]
+    #[Route('/logout', name: 'logout', methods: ['GET', 'POST'])]
     public function logout(): void
     {
+        // Symfony will handle the logout, so no need for additional logic here
         throw new \Exception('This should never be reached!');
     }
 }

@@ -15,20 +15,17 @@ class ZlistController extends AbstractController
     #[Route('/zlist', name: 'zlistpage')]
     public function zlist(Request $request, EntityManagerInterface $entityManager): Response
     {
-        // Get the 'season' parameter from the query string
         $season = $request->query->get('season');
 
         if ($season) {
-            // Filter zombies by season if a season is selected
             $zombies = $entityManager->getRepository(Zombie::class)->findBy(['season' => $season]);
         } else {
-            // Otherwise, get all zombies
             $zombies = $entityManager->getRepository(Zombie::class)->findAll();
         }
 
         return $this->render('list/zlist.html.twig', [
             'zombies' => $zombies,
-            'selectedSeason' => $season, // Pass the selected season to the template
+            'selectedSeason' => $season,
         ]);
     }
 
