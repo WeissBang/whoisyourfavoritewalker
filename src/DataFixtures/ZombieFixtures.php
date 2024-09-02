@@ -104,7 +104,6 @@ class ZombieFixtures extends Fixture
         ];
 
         foreach ($zombies as $zombieData) {
-            // Check if a Zombie with the same name already exists
             $existingZombie = $manager->getRepository(Zombie::class)
                 ->findOneBy(['name' => $zombieData['name']]);
 

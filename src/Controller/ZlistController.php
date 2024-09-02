@@ -89,4 +89,19 @@ class ZlistController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    #[Route('/zombie/{id}', name: 'zombie_single')]
+    public function showZombie(int $id, EntityManagerInterface $entityManager): Response
+    {
+        $zombie = $entityManager->getRepository(Zombie::class)->find($id);
+    
+        if (!$zombie) {
+            throw $this->createNotFoundException('Zombie not found.');
+        }
+    
+        return $this->render('list/zsingle.html.twig', [
+            'zombie' => $zombie,
+        ]);
+    }
+
 }
