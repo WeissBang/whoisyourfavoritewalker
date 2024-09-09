@@ -12,6 +12,7 @@ _A brief introduction to this project, what it is about, and what it does._
 - [Usage](#usage)
 - [Security](#security)
 - [Database Setup and Communication](#database-setup-and-communication)
+- [Notes](#notes)
 - [License](#license)
 
 ---
