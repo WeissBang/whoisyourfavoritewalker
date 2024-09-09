@@ -9,7 +9,6 @@
                 <div class="col-md-4 mb-4">
                     <div class="card text-center shadow-sm" style="background-color: #2B2B2B; border-radius: 10px; border: 1px solid #FF4500; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
                         <div class="card-body" style="flex-grow: 1;">
-                            <!-- Zombie Image -->
                             <img src="{{ asset('images/' ~ zombie.image) }}" alt="{{ zombie.name }}" class="img-fluid mb-3" style="max-width: 100%; border-radius: 5px; border: 1px solid #555;">
 
                             <h5 class="card-title" style="color: #FFFFFF;">{{ zombie.name }}</h5>
@@ -38,7 +37,6 @@
     </div>
 
     <style>
-        /* Remove hover effect on cards */
         .card:hover {
             box-shadow: none;
             transform: none;

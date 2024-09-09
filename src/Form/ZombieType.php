@@ -28,7 +28,7 @@ class ZombieType extends AbstractType
             ])
             ->add('image', FileType::class, [
                 'required' => false,
-                'mapped' => false, // This field is not directly mapped to the entity
+                'mapped' => false,
                 'constraints' => [
                     new File([
                         'maxSize' => '2M',
