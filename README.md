@@ -1,10 +1,8 @@
 
-# README for Your Symfony Project
+## Who is your favorite Walker
 
-## Project Title
-
-**Zombie Game - Symfony Based Application**  
-_A brief introduction to your project, what it is about, and why it's useful._
+**Who is your favorite Walker - Symfony Based Project**  
+_A brief introduction to this project, what it is about, and what it does._
 
 ## Table of Contents
 
@@ -21,22 +19,20 @@ _A brief introduction to your project, what it is about, and why it's useful._
 
 ### About the Project
 
-This project is a zombie survival game implemented using the Symfony framework. It features an administrative dashboard with secure access and leverages a database to store player progress, game levels, and statistics.
-
-The primary goal of the project is to create a simple web-based game that allows players to explore a zombie-infested world, battle enemies, and manage their resources.
+Welcome to "Who Is Your Favorite Walker," the ultimate fan site dedicated to the most iconic walkers from The Walking Dead series. This site allows fans like you to explore a curated list of the most memorable walkers from the show and even contribute by submitting your own favorites. Our mission is to celebrate the creativity and impact of the undead in The Walking Dead universe. Whether it's a particularly gruesome walker or one with a unique backstory, this is the place to share and discover them. We hope you enjoy exploring the site and adding your own contributions to the ever-growing list of The Walking Dead Walkers.
 
 ---
 
 ### Installation Instructions
 
-To get the project running on your local server, follow these steps:
+To get the project running on your server, follow these steps:
 
 1. Clone the repository from GitHub:
 
    ```bash
-   git clone https://github.com/YourUsername/zombie-game.git
-   cd zombie-game
+   git clone https://github.com/WeissBang/whoisyourfavoritewalker.git
    ```
+   or just download the project yourself
 
 2. Install the required dependencies via Composer:
 
@@ -49,12 +45,13 @@ To get the project running on your local server, follow these steps:
    If you're running this project on a local server, create a `.env.local` file in the root directory based on the `.env` file. In this file, configure your database connection settings:
 
    ```
-   DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name"
+   example: DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name"
    ```
+   !!! Do not forget to create your database !!!
 
 4. Set up the database:
 
-   Run the following commands to create the database schema, run migrations, and load the fixture data (this will pre-populate the database with game data).
+   Run the following commands to create the database schema, run migrations, and load the fixture data (this will pre-populate the database with an example data for you to see so do not fixtures:load if you want to add your own data !).
 
    ```bash
    php bin/console doctrine:database:create
@@ -62,15 +59,13 @@ To get the project running on your local server, follow these steps:
    php bin/console doctrine:fixtures:load
    ```
 
-   > **Note**: The fixtures are already set up with initial game data.
-
-5. Start the Symfony local server:
+5. Start the Symfony local server ("symfony server:stop" if a server is already running):
 
    ```bash
-   symfony serve
+   symfony serve --no-tls
    ```
 
-   You can then access the project in your browser at `http://127.0.0.1:8000`.
+   You can then access the project in your browser at `http://127.0.0.1:8000`(!!! This might be different for you !!!).
 
 ---
 
@@ -78,9 +73,9 @@ To get the project running on your local server, follow these steps:
 
 This section highlights key parts of the project:
 
-- **Game Logic**: All game-related functionality (such as combat mechanics, player health, and enemy behavior) is found in the `src/Controller/GameController.php` file.
-- **Admin Area**: The `AdminController.php` handles the admin dashboard, allowing administrators to manage users, game settings, and view analytics.
-- **Entities**: The database entities, including `Player`, `GameLevel`, and `Enemy`, are defined in the `src/Entity/` directory and represent the game's core data models.
+- **Main functionality**: Users are able to view and add thier own walkers using the form already created that works using the controller to automate the process.
+- **Admin Area**: The Admin area handles the admin dashboard, allowing administrators to manage walkers, review them and then edit or delete them if need be.
+- **Entities**: The database entities, including `Zombie` and `User` are defined in the `src/Entity/` directory and represent the project's core data models.
 - **Security**: Symfony's security component ensures that only authorized users can access the admin section. This is configured in the `security.yaml` file, and the logic to manage roles is present in `AdminController.php`.
 
 ---
@@ -89,9 +84,9 @@ This section highlights key parts of the project:
 
 Once the application is running, users can:
 
-- Create an account and start playing the game.
-- Navigate through different levels of the game, each populated with various enemies and challenges.
-- Admin users can log in to manage game settings, view reports, and make changes to player data.
+- Access to the "Wall of the Dead" to see all the walkers that have been already added.
+- Navigate through different pages of the project, each having their own use.
+- Admin users can log in to manage data settings, view walkers, and make changes to the wall of the dead page.
 
 ---
 
@@ -99,7 +94,7 @@ Once the application is running, users can:
 
 Security is a critical aspect of this project, particularly for the admin page. Here’s an overview:
 
-- **Role-Based Access Control (RBAC)**: The security system in Symfony controls access to different parts of the application based on user roles. Admin users have higher privileges, allowing them to access the `/admin` routes, which are secured in the `security.yaml` file.
+- **Admin Access Control**: The database has users that are authorized to access it (in the User table), by using the admin login page you can unlock the admin dashboard if not already logged in. You can add more admin account if need be by adding them in the User table in the Database. There is already a preloaded admin by loading the fixtures in so that you can try it out (user:admin - password:1234admin)
   
 - **Password Hashing**: All user passwords are hashed using Symfony's default password encoder.
 
@@ -111,7 +106,7 @@ Security is a critical aspect of this project, particularly for the admin page. 
 
 The project uses Doctrine ORM for database communication. Here’s how it works:
 
-- **Entity Mapping**: The entities, such as `Player` and `GameLevel`, are mapped to the database tables via Doctrine annotations.
+- **Entity Mapping**: The entities, such as `Zombie` and `User`, are mapped to the database tables via Doctrine annotations.
   
 - **Database Migrations**: Migrations are used to version the database schema. If you need to make any changes to the schema, run the following command:
 
@@ -128,18 +123,6 @@ The project uses Doctrine ORM for database communication. Here’s how it works:
 
 ---
 
-### Contributing
-
-If you would like to contribute to the project, feel free to fork the repository and create a pull request. Contributions are always welcome!
-
-1. Fork the project
-2. Create a new branch (`git checkout -b feature/NewFeature`)
-3. Commit your changes (`git commit -m 'Add some feature'`)
-4. Push to the branch (`git push origin feature/NewFeature`)
-5. Open a Pull Request
-
----
-
 ### License
 
-This project is licensed under the MIT License.
+All Rights Reserved
