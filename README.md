@@ -126,9 +126,9 @@ The project uses Doctrine ORM for database communication. Here’s how it works:
 
 ### Notes
 
--The ExceptionListener.php in src/EventListener does not work yet and is a work in progress, however do not remove the file as it will result in fatal errors.
--The project uses Bootstrap but you can change it to something else.
--All custom CSS is located at assets/styles/style.css.
+- The ExceptionListener.php in src/EventListener does not work yet and is a work in progress, however do not remove the file as it will result in fatal errors.
+- The project uses Bootstrap but you can change it to something else.
+- All custom CSS is located at assets/styles/style.css.
 
 ---
 
